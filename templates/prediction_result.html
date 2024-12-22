@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection Result</title>
+    <style>
+        /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .result-container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .heading {
+            font-size: 36px;
+            color: #112f42;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .prediction-result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #4caf50; /* Green for 'No Pneumonia' */
+        }
+
+        .prediction-result.pneumonia {
+            background-color: #f44336; /* Red for 'Yes Pneumonia' */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .back-btn {
+            padding: 12px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #112f42;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 50%;
+            transition: background-color 0.3s;
+            margin-left: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #6a9dbe;
+            color: #112f42;
+            border-radius: 10px;
+            border: 2px solid #112f42;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1 class="heading">Pneumonia Detection Result</h1>
+        <p class="description">Based on the X-ray image you uploaded, the model has made the following prediction:</p>
+        
+        <!-- Prediction Result -->
+        <div class="prediction-result {% if prediction == 'Yes Pneumonia' %}pneumonia{% endif %}">
+            {{ prediction }}
+        </div>
+        
+        <!-- Back Button -->
+        <div class="button-container">
+            <a href="/" class="back-btn">Back to Upload</a>
+        </div>
+    </div>
+</body>
+</html>

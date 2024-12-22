@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <style>
+        /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Set the background image */
+        .container {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            background: url('static/images/bg4.jpg') no-repeat center center/cover;
+            padding: 20px;
+        }
+
+        .form-container {
+            flex: 1;
+            max-width: 500px;  
+            margin-left: 50px;
+        }
+
+        .image-container {
+            display: none;  /* Hide the image as it's now the background */
+        }
+
+        .heading {
+            font-size: 48px;
+            color: #081625;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 50px;
+
+        }
+
+        label {
+            font-size: 18px;
+            color: #0a253f;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="file"] {
+            padding: 8px;
+            font-size: 18px;
+            border: 3px solid #3f457cbd;
+            border-radius: 5px;
+            width: 55%;
+            margin-bottom: 10px;
+        }
+
+        button.submit-btn {
+            padding: 12px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #112f42;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 30%;
+            transition: background-color 0.3s;
+            margin-left: 50px;
+        }
+
+        button.submit-btn:hover {
+            background-color: #94c5e6;
+            color: #112f42;
+            border-radius: 10px;
+            border: 2px solid #112f42;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="heading">Pneumonia Detection</h1>
+            <p class="description">Upload an X-ray image for pneumonia detection.</p>
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <label for="file">Upload an X-ray image:</label><br>
+                <input type="file" id="file" name="file" accept="image/*" required><br><br>
+                <button type="submit" class="submit-btn">Predict</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
